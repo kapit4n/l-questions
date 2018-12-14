@@ -9,11 +9,11 @@ export default function Question(props) {
             }
             {props.question.type == 'y' && (
                 <label>
-                    <input key={props.question.id} type="checkbox" className="radio" value="1" name="yes" />Yes</label>
+                    <input  onChange={props.changeDataEvent} key={props.question.id} type="checkbox" className="radio" value="1" name="yes" />Yes</label>
             )
             }
             {props.question.type == 's' && (
-                <select>
+                <select  onChange={props.changeDataEvent}>
                     {props.question.options.map(opc => (<option key={opc}>{opc}</option>))}
                 </select>
             )

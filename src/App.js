@@ -9,6 +9,7 @@ class App extends Component {
     super(props);
     this.state = { data: { "1": "Init" } };
     this.changeDataEvent = this.changeDataEvent.bind(this);
+    this.saveQuestions = this.saveQuestions.bind(this);
 
   }
 
@@ -23,6 +24,10 @@ class App extends Component {
     console.log(event.target.value);
     console.log(question.id);
     this.changeData(question.id, event.target.value);
+  }
+
+  saveQuestions() {
+    console.log(this.state.data);
   }
 
   render() {
@@ -57,7 +62,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Questions changeDataEvent={this.changeDataEvent} questions={[questionsGeneral, questionsAngular, questionsReact].flat(1)} title="Programming questions"></Questions>
+        <Questions saveQuestions={this.saveQuestions} changeDataEvent={this.changeDataEvent} questions={[questionsGeneral, questionsAngular, questionsReact].flat(1)} title="Programming questions"></Questions>
       </div>
     );
   }

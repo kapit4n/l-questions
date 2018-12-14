@@ -9,7 +9,7 @@ export default function Questions(props) {
                     <Question changeDataEvent={e => props.changeDataEvent(e, question)} key={question.id} question={question}></Question>
                 ))}
             </ul>
-            <button>Save</button>
+            <button onClick={props.saveQuestions}>Save</button>
             <button>Cancel</button>
         </div>
     );
