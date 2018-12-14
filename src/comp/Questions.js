@@ -3,6 +3,7 @@ import Question from './Question'
 export default function Questions(props) {
     return (
         <div>
+            <h1>{props.title}</h1>
             <ul>
                 {props.questions.map(question => (
                     <Question key={question} question={question}></Question>
@@ -13,4 +14,3 @@ export default function Questions(props) {
         </div>
     );
 }
-
