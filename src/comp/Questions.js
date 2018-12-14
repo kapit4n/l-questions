@@ -6,7 +6,7 @@ export default function Questions(props) {
             <h1>{props.title}</h1>
             <ul>
                 {props.questions.map(question => (
-                    <Question key={question} question={question}></Question>
+                    <Question key={question.id} question={question}></Question>
                 ))}
             </ul>
             <button>Save</button>
