@@ -9,7 +9,7 @@ export default function Question(props) {
             }
             {props.question.type == 'y' && (
                 <label>
-                    <input type="checkbox" class="radio" value="1" name="yes" />Yes</label>
+                    <input type="checkbox" className="radio" value="1" name="yes" />Yes</label>
             )
             }
             {props.question.type == 's' && (

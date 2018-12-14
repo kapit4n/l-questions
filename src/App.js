@@ -9,7 +9,7 @@ class App extends Component {
     const questions = [
       { id: 1, r: "What is programming for you?", type: "w"},
       { id: 2, r: "Do you like to program on javascript?", type: "y"},
-      { id: 2, r: "What is your favorite language?", type: "s", options: ["Java", "JavaScript"]}
+      { id: 3, r: "What is your favorite language?", type: "s", options: ["Java", "JavaScript"]}
     ];
     return (
       <div className="App">
