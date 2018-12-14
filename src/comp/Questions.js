@@ -1,13 +1,16 @@
 import React from 'react';
-export default function  Questions(props) {
+import Question from './Question'
+export default function Questions(props) {
     return (
-        <ul>
-            <li>
-                What is the difference between programming language and compiler
-            </li>
-            <li>
-                Is the something else you can do instead of programming?
-            </li>
-        </ul>
-    )
+        <div>
+            <ul>
+                {props.questions.map(question => (
+                    <Question key={question} question={question}></Question>
+                ))}
+            </ul>
+            <button>Save</button>
+            <button>Cancel</button>
+        </div>
+    );
 }
+

@@ -4,10 +4,12 @@ import './App.css';
 import Questions from './comp/Questions'
 
 class App extends Component {
+  
   render() {
+    const questions = ["what is this", "Who you are with"];
     return (
       <div className="App">
-        <Questions></Questions>
+        <Questions questions={questions}></Questions>
       </div>
     );
   }
