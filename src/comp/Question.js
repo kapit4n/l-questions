@@ -5,11 +5,11 @@ export default function Question(props) {
             Q: {props.question.r} <br></br>
             R:
             {props.question.type == 'w' &&
-                <input></input>
+                <input  onChange={props.changeDataEvent}></input>
             }
             {props.question.type == 'y' && (
                 <label>
-                    <input type="checkbox" className="radio" value="1" name="yes" />Yes</label>
+                    <input key={props.question.id} type="checkbox" className="radio" value="1" name="yes" />Yes</label>
             )
             }
             {props.question.type == 's' && (
