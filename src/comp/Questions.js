@@ -18,11 +18,14 @@ export default function Questions(props) {
                     <span class="close">&times;</span>
                     <p>Write the question..</p>
                     <input></input>
-                    <select> 
-                    <option key="y">Yes No Question</option>
-                    <option key="w">Information Question</option>
-                    <option key="s">Selection question</option>
-                </select>
+                    <select>
+                        <option key="y">Yes No Question</option>
+                        <option key="w">Information Question</option>
+                        <option key="s">Selection question</option>
+                    </select>
+                    <div>
+                        <button onClick={props.saveQuestion}>Save</button>
+                    </div>
                 </div>
             </div>
         </div>
