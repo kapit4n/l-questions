@@ -10,6 +10,7 @@ class App extends Component {
     this.state = { data: { "1": "Init" } };
     this.changeDataEvent = this.changeDataEvent.bind(this);
     this.saveQuestions = this.saveQuestions.bind(this);
+    this.openModal = this.openModal.bind(this);
 
   }
 
@@ -28,6 +29,24 @@ class App extends Component {
 
   saveQuestions() {
     console.log(this.state.data);
+  }
+
+  openModal() {
+    var modal = document.getElementById('myModal');
+    modal.style.display = "block";
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
   }
 
   render() {
@@ -62,7 +81,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Questions saveQuestions={this.saveQuestions} changeDataEvent={this.changeDataEvent} questions={[questionsGeneral, questionsAngular, questionsReact].flat(1)} title="Programming questions"></Questions>
+        <Questions openModal={this.openModal} saveQuestions={this.saveQuestions} changeDataEvent={this.changeDataEvent} questions={[questionsGeneral, questionsAngular, questionsReact].flat(1)} title="Programming questions"></Questions>
       </div>
     );
   }
