@@ -13,16 +13,18 @@ export default function Questions(props) {
             <button onClick={props.saveQuestions}>Save</button>
             <button>Cancel</button>
 
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
+            <div id="myModal" className="modal">
+                <div className="modal-content">
+                    <span className="close">&times;</span>
                     <p>Write the question..</p>
-                    <input></input>
-                    <select>
-                        <option key="y">Yes No Question</option>
-                        <option key="w">Information Question</option>
-                        <option key="s">Selection question</option>
+                    <input onChange={props.newQuestionChange}></input>
+                    
+                    <select onChange={props.newQuestionTypeChange}>
+                        <option value="y">Yes No Question</option>
+                        <option value="w">Information Question</option>
+                        <option value="s">Selection question</option>
                     </select>
+
                     <div>
                         <button onClick={props.saveQuestion}>Save</button>
                     </div>

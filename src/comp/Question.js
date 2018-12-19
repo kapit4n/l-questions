@@ -14,7 +14,7 @@ export default function Question(props) {
             }
             {props.question.type == 's' && (
                 <select  onChange={props.changeDataEvent}>
-                    {props.question.options.map(opc => (<option key={opc}>{opc}</option>))}
+                    {props.question.options.map(opc => (<option value={opc}>{opc}</option>))}
                 </select>
             )
             }

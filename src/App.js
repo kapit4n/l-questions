@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Questions from './comp/Questions'
 
@@ -7,6 +6,12 @@ class App extends Component {
 
   languages = ["Java", "JavaScript", "TypeScript", "Scala", "Python"];
   questionsGeneral = [
+    { id: 1, r: "What is programming?", type: "w" },
+    { id: 2, r: "What is the most interesting thing you have programmed?", type: "w" },
+    { id: 3, r: "What is the difference between programming language and framework?", type: "w" }
+  ];
+
+  questionsGeneralBackup = [
     { id: 1, r: "What is programming?", type: "w" },
     { id: 2, r: "What is the most interesting thing you have programmed?", type: "w" },
     { id: 3, r: "What is the difference between programming language and framework?", type: "w" },
@@ -30,11 +35,13 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { data: { "1": "Init" }, questions: this.questionsGeneral };
+    this.state = { data: { "1": "Init" }, questions: this.questionsGeneral, newQuestion: "", newQuestionType: "" };
     this.changeDataEvent = this.changeDataEvent.bind(this);
     this.saveQuestions = this.saveQuestions.bind(this);
     this.saveQuestion = this.saveQuestion.bind(this);
     this.openModal = this.openModal.bind(this);
+    this.newQuestionChange = this.newQuestionChange.bind(this);
+    this.newQuestionTypeChange = this.newQuestionTypeChange.bind(this);
   }
 
   changeData(key, value) {
@@ -48,6 +55,15 @@ class App extends Component {
     console.log(event.target.value);
     console.log(question.id);
     this.changeData(question.id, event.target.value);
+  }
+
+  newQuestionChange(event) {
+    this.setState({ newQuestion: event.target.value });
+  }
+
+  newQuestionTypeChange(event) {
+    console.log(event.target);
+    this.setState({ newQuestionType: event.target.value });
   }
 
   saveQuestions() {
@@ -72,14 +88,23 @@ class App extends Component {
   }
 
   saveQuestion() {
-    this.questionsGeneral.push({ id: this.questionsGeneral.length + 1, type: 'w', r: "This is a question" });
+    console.log(this.state.newQuestionType);
+    console.log(this.state.newQuestion);
+
+    this.questionsGeneral.push({ id: this.questionsGeneral.length + 1, type: this.state.newQuestionType, r: this.state.newQuestion });
     this.setState({ questions: this.questionsGeneral });
+    let modal = document.getElementById('myModal');
+    modal.style.display = "none";
   }
 
   render() {
     return (
       <div className="App">
-        <Questions openModal={this.openModal} saveQuestion={this.saveQuestion} saveQuestions={this.saveQuestions} changeDataEvent={this.changeDataEvent} questions={this.state.questions} title="Programming questions"></Questions>
+        <Questions openModal={this.openModal} saveQuestion={this.saveQuestion}
+          saveQuestions={this.saveQuestions} changeDataEvent={this.changeDataEvent}
+          questions={this.state.questions} title="Programming questions"
+          newQuestionChange={this.newQuestionChange} newQuestionTypeChange={this.newQuestionTypeChange}
+        ></Questions>
       </div>
     );
   }
