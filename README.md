@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![Home](https://raw.githubusercontent.com/kapit4n/l-questions/master/mockups/l-questions-home.png)
+![Home](https://raw.githubusercontent.com/kapit4n/l-questions/master/mockups/l-question-home.png)
 
 ## Available Scripts
 
